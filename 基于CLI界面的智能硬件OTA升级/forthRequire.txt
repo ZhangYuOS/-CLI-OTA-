@@ -1,1 +1,0 @@
-现在请你在server端实现一个更新功能,让我可以删除掉最新的fireware版本,通过修改manifest.json的配置
