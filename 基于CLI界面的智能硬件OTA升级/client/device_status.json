@@ -1,0 +1,15 @@
+{
+  "device_id": "DEV-RK3588-001",
+  "active_slot": "B",
+  "current_version": "7.0.0",
+  "slots": {
+    "A": {
+      "version": "4.0.0",
+      "sha256": "d0af5ddda0663d33471cfb171ba8128201c25e5d9445eebd0504356ce508cc51"
+    },
+    "B": {
+      "version": "7.0.0",
+      "sha256": "178a0308b7b36c6ee3c5df043ae69aa934094217b51430b2430b50b7d789b34b"
+    }
+  }
+}

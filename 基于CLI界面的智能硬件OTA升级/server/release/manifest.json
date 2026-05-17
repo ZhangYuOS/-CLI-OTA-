@@ -1,0 +1,20 @@
+{
+  "latest": "3.0.0",
+  "versions": {
+    "1.0.0": {
+      "filename": "firmware_v1.0.0.bin",
+      "size": 5242880,
+      "sha256": "5e23160a667d9d411d63840a099906edba42b61a96410489bbcf28baba1cadd0"
+    },
+    "2.0.0": {
+      "filename": "firmware_v2.0.0.bin",
+      "size": 5242880,
+      "sha256": "a03cef0456e0455d92b1aa6765088f6a48a3bcba808d945d9985b21cf214920b"
+    },
+    "3.0.0": {
+      "filename": "firmware_v3.0.0.bin",
+      "size": 5242880,
+      "sha256": "112c47730387adba23ddbec467e9b06eeb7fdfa65aac8774afe4daba0d2797fa"
+    }
+  }
+}
