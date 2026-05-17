@@ -1,0 +1,12 @@
+Act as an expert Python Software Engineer. We are upgrading our OTA architecture from a pure local simulation to a real physical network setup. The Server will run on my PC/WSL, and the Client will be deployed on both WSL and a physical Linux development board on the same LAN.
+
+IMMEDIATE ACTION (Step 2 - Client Implementation & Network Adaptation):
+1. Update our server startup instructions/configurations if necessary to ensure it runs on `0.0.0.0` so external boards can access it over the LAN.
+2. Create `client/cli.py` using Click and Rich.
+3. Initialize `client/device_status.json` (active slot 'A', version '1.0.0'). Create `client/slot_a/` and `client/slot_b/` directories.
+4. Implement the following CLI commands in `client/cli.py`: `status`, `check`, `update`, and `rollback`.
+5. CRITICAL NETWORK REQUIREMENT: Do NOT hardcode `http://127.0.0.1:8000` in the client functions. You MUST add a global Click option `--server-url` (defaulting to `http://127.0.0.1:8000`) so I can pass the PC's actual LAN IP when running the client on my physical dev board (e.g., `python cli.py --server-url http://192.168.x.x:8000 update`).
+6. Implement the strict A/B logic for the `update` command: download to the standby slot, verify SHA256, and switch the active slot in the JSON file ONLY if the hash matches perfectly.
+7. Document this entire step in `docs/AI_Prompt_Log.md` according to your [prompt-log-tracker] skill.
+
+Stop after completing Step 2 and wait for my review.

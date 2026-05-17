@@ -1,0 +1,19 @@
+Act as an expert Python Software Engineer. The base C/S OTA architecture is working flawlessly across the physical LAN. Now we need to implement Step 3 to add advanced realistic OTA behaviors to our system.
+
+IMMEDIATE ACTION (Step 3 - Advanced OTA Features):
+1. Server: Dynamic Publishing & Version Selection
+   - Modify the server to manage multiple firmware versions instead of a hardcoded one. Use a `server/release/manifest.json` to track available versions.
+   - Create a helper CLI script `server/publish.py <version>` that generates a new 5MB dummy file (e.g., `firmware_v<version>.bin`), calculates its SHA256, and updates/creates the `manifest.json`.
+   - Update FastAPI `/version` and `/firmware` endpoints to accept an optional `?v=<version>` query parameter. If omitted, return the latest version.
+
+2. Client: Version Selection & Ping-Pong Verification
+   - Update `client/cli.py` `check` and `update` commands to accept an optional `--target-version` option.
+   - The A/B ping-pong logic should naturally handle multiple sequential updates (e.g., Slot A(v1) -> Slot B(v2) -> Slot A(v3)). Ensure the Rich UI explicitly logs this ping-pong transition.
+
+3. Client: True Auto-Rollback vs. Abort (Crucial Defensive Logic)
+   - Abort Handling: Add `try/except` blocks to catch network errors or `KeyboardInterrupt` during the download. If caught, cleanly delete the partial file in the standby slot, explicitly log "Download Aborted. Active slot remains unchanged", and exit.
+   - Auto-Rollback Simulation: Add a `--simulate-boot-crash` boolean flag to the `update` command. If passed, the system completes the download and hash check, and switches the JSON active slot. BUT immediately after, it prints `[Simulating Reboot...] -> KERNEL PANIC! Watchdog triggered.`, and automatically executes the rollback logic to revert to the previous slot.
+
+4. Document this entire Step 3 in `docs/AI_Prompt_Log.md` using your [prompt-log-tracker] skill.
+
+Stop after completing Step 3 and wait for my review.

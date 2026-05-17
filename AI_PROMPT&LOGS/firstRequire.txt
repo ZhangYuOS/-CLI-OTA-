@@ -1,0 +1,19 @@
+Act as an expert Python Software Engineer. I need to build a C/S architecture tool that simulates an IoT/Hardware OTA (Over-the-Air) A/B partition upgrade process on local WSL.
+
+Here are the core requirements of the system:
+1. Check current version.
+2. Download 'new firmware' (a dummy file).
+3. Verify MD5/SHA256 checksum.
+4. Simulate writing to Slot A and rebooting/switching.
+5. Simulate an 'upgrade failure' and auto-rollback to Slot B.
+
+Client must be a CLI tool, Server must be a separate backend. You already know the Tech Stack and your Active Skills from the CLAUDE.md file in this directory.
+
+IMMEDIATE ACTION (Step 1):
+Do not build the whole system yet. For now, only do the following:
+1. Create the project directory structure (server/, client/, docs/).
+2. Implement the FastAPI server (server/main.py) that provides a /version endpoint and serves a dummy firmware_v2.bin (generate a 5MB dummy file filled with zeros in server/release/).
+3. Generate a requirements.txt for the whole project.
+4. Document this Step 1 in docs/AI_Prompt_Log.md as per your skills.
+
+Stop after completing Step 1 and wait for my review.
