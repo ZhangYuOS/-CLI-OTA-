@@ -1,0 +1,23 @@
+Act as an Expert Technical Writer and Developer Advocate. We need to create a killer `README.md` for our Industrial-Grade IoT OTA A/B Partition Simulator to showcase it as a mature open-source project.
+
+IMMEDIATE ACTION:
+1. Please scan the current codebase (`server/` and `client/`) and write a comprehensive, highly professional `README.md` in **Chinese**.
+2. Document this step (generating the README) in `docs/AI_Prompt_Log.md` using your [prompt-log-tracker] skill.
+
+The README MUST include the following sections:
+- **Project Title & Catchy Subtitle**: E.g., "Industrial-Grade IoT OTA Simulator" (in Chinese).
+- **Core Architecture**: Briefly explain the C/S design (FastAPI + Click/Rich) and the physical LAN separation concept.
+- **Killer Features (Highlight these heavily to showcase the system's robustness)**:
+  - A/B Partition Ping-Pong updates (A/B 分区乒乓机制).
+  - SHA-256 Firmware Verification (SHA-256 固件防篡改校验).
+  - Network Robustness: Resumable Downloads (支持 HTTP 206 断点续传) & Abort Protection.
+  - Telemetry: Real-time device status reporting to the cloud (设备状态遥测与云端上报).
+  - Fail-Safe: Watchdog auto-rollback on simulated boot crash (模拟看门狗触发的内核崩溃自动回滚).
+- **Environment Setup**: Python requirements and installation.
+- **Usage Guide (Step-by-Step)**:
+  - How to start the server (emphasize using `--host 0.0.0.0` for cross-device LAN access).
+  - How to use the publisher (`server/publish.py`).
+  - How to run client commands (status, check, update, rollback) using the `--server-url` flag with a LAN IP.
+- **Testing the Advanced Features**: Provide developers with exact command sequences to manually test the "Resumable Download" (Ctrl+C and resume) and "Auto-Rollback" (`--simulate-boot-crash`).
+
+Format it beautifully with Markdown, use emojis properly to make it readable but professional. Do not use generic placeholders; use actual command examples from our code. Stop and wait for my review once `README.md` and the log are updated.
